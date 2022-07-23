@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import {useState, useRef} from 'react'
 import './App.css';
+import { Carregando } from './Pages/Carregando';
+import { Error } from './Pages/Error';
+import { Resultados } from './Pages/Resultados';
+import  { Home }  from './Pages/Home';
+
 
 function App() {
-  return (
+  const [nomeTela, setNomeTela] = useState("Home");
+  const [resultado, setResultado] = useState({}); 
+  const [errorMessage, setErrorMessage] = useState("");
+  const ticket = useRef(1);
+
+  function goTo(nomeTela){
+    setNomeTela(nomeTela);
+  }
+  return(
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          {nomeTela === "Home" ? <Home goTo={goTo} setResultado={setResultado} setErrorMessage={setErrorMessage} ticket={ticket}/> : null}
+          { nomeTela === "Resultados" ? <Resultados goTo={goTo} result={resultado}/> : null}
+          {nomeTela === "Error" ? <Error goTo={goTo} errorMessage={errorMessage} /> : null}
+          {nomeTela === "Carregando" ? <Carregando goTo={goTo} ticket={ticket}/> : null}
       </header>
     </div>
-  );
+  )
 }
 
 export default App;

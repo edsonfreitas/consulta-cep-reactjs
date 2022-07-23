@@ -1,0 +1,27 @@
+.cepDados{
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 10px 3px;
+    background-color: rgba(44, 34, 72, 0.278);
+    border: solid 0.5px;
+    text-align: center;
+}
+.btnCons{
+    background-color: #05044a;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 2rem;
+}
+.btnSalv{
+    background-color: #0b0a5e;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+}
